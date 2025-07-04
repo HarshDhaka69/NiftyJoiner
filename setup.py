@@ -281,7 +281,7 @@ python3 joiner.py
             
             # Test file structure
             required_files = [
-                self.project_root / "joiner.py",
+                self.project_root / "niftyjoiner.py",
                 self.project_root / "requirements.txt",
                 self.project_root / "links.txt",
                 self.config_dir / "settings.json"
@@ -321,8 +321,8 @@ Next steps:
    • Linux/Mac: ./run.sh or python3 joiner.py
    
    Command Line:
-   • python joiner.py --help (see all options)
-   • python joiner.py --batch-mode --session myaccount
+   • python niftyjoiner.py --help (see all options)
+   • python niftyjoiner.py --batch-mode --session myaccount
 
 4. 📚 Read the README.md for detailed usage instructions
 

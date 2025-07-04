@@ -282,12 +282,14 @@ class TelegramGroupJoiner:
     async def get_group_info(self, link: str) -> Tuple[Optional[str], Optional[int]]:
         """Get group information."""
         try:
-            if "joinchat" in link:
-                # For invite links, we can't get info before joining
+            # Extract the last part of the URL
+            channel_part = link.split('/')[-1]
+            
+            # For private channels (both old and new format), we can't get info before joining
+            if "joinchat" in link or channel_part.startswith('+'):
                 return None, None
             else:
-                channel_username = link.split('/')[-1]
-                entity = await self.client.get_entity(channel_username)
+                entity = await self.client.get_entity(channel_part)
                 full_channel = await self.client(GetFullChannelRequest(entity))
                 return entity.title, full_channel.full_chat.participants_count
         except Exception:
@@ -301,17 +303,25 @@ class TelegramGroupJoiner:
             # Get group info if possible
             group_name, member_count = await self.get_group_info(link)
             
-            if "joinchat" in link:
-                invite_hash = link.split('/')[-1]
+            # Extract the last part of the URL
+            channel_part = link.split('/')[-1]
+            
+            # Check if it's a private channel (either joinchat or + format)
+            if "joinchat" in link or channel_part.startswith('+'):
+                # For joinchat links, the hash is after the last /
+                # For + links, remove the + prefix to get the hash
+                invite_hash = channel_part.replace('+', '')
+                if "joinchat" in link:
+                    invite_hash = invite_hash.replace('joinchat/', '')
+                
                 result = await self.client(ImportChatInviteRequest(invite_hash))
                 
                 # Extract group name from result if we didn't get it before
                 if hasattr(result, 'chats') and result.chats:
                     group_name = result.chats[0].title
-                    
             else:
-                channel_username = link.split('/')[-1]
-                await self.client(JoinChannelRequest(channel_username))
+                # Public channel/group
+                await self.client(JoinChannelRequest(channel_part))
             
             self.logger.info(f"Successfully joined group: {link}")
             
