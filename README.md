@@ -36,25 +36,76 @@ An advanced Python application for automatically joining Telegram groups with so
 
 ## 🚀 Installation
 
-1. **Clone the repository**:
+### For Termux (Android)
+
+1. Set up storage access (important):
+```bash
+termux-setup-storage
+```
+
+2. Update Termux packages:
+```bash
+pkg update && pkg upgrade -y
+```
+
+3. Install required packages:
+```bash
+pkg install python git -y
+```
+
+4. Clone this repository:
 ```bash
 git clone https://github.com/HarshDhaka69/NiftyJoiner.git
+```
+
+5. Navigate to the project directory:
+```bash
 cd NiftyJoiner
 ```
 
-2. **Install dependencies**:
+6. Install required Python packages And Create Directories:
 ```bash
-pip install -r requirements.txt
+python setup.py
 ```
 
-3. **Get Telegram API credentials**:
-   - Visit https://my.telegram.org/
-   - Log in with your phone number
-   - Go to 'API Development Tools'
-   - Create a new application
-   - Copy the API_ID and API_HASH
+7. Run the script:
+```bash
+python joiner.py
+```
 
-4. **Create your links file**:
+### For Windows/Linux/Mac
+
+1. Make sure Python 3.8+ is installed
+
+2. Clone this repository:
+```bash
+git clone https://github.com/HarshDhaka69/NiftyJoiner.git
+```
+
+3. Navigate to the project directory:
+```bash
+cd NiftyJoiner
+```
+
+4. Install required Python packages And Create Directories:
+```bash
+python setup.py
+```
+
+5. Run the script:
+```bash
+python joiner.py
+```
+
+### Get Telegram API Credentials
+
+1. Visit https://my.telegram.org/
+2. Log in with your phone number
+3. Go to 'API Development Tools'
+4. Create a new application
+5. Copy the API_ID and API_HASH
+
+### Configure Links File
 ```bash
 # The application will create a template links.txt file automatically
 # Add your group links, one per line:
@@ -279,7 +330,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 For support and questions:
 - Telegram: @ItsHarshX
-- GitHub Issues: [Create an issue](https://github.com/yourusername/niftypool-enhanced/issues)
+- GitHub Issues: [Create an issue](https://github.com/HarshDhaka69/NiftyJoiner/issues)
 
 ## 📋 Changelog
 
