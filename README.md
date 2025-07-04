@@ -309,10 +309,10 @@ pip install -r requirements.txt
 pytest
 
 # Format code
-black joiner.py
+black NiftyJoiner.py
 
 # Type checking
-mypy joiner.py
+mypy NiftyJoiner.py
 ```
 
 ## 📜 License
