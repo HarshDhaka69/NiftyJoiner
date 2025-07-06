@@ -82,7 +82,7 @@ python niftyjoiner.py
 
 ### For Windows/Linux/Mac
 
-1. Make sure Python 3.8+ is installed
+1. Make sure Python 3.11.9 is installed
 
 2. Clone this repository:
 ```bash
