@@ -68,9 +68,16 @@ cd NiftyJoiner
 python setup.py
 ```
 
-7. Run the script:
+7. Edit links.txt to add your Telegram group links:
 ```bash
-python joiner.py
+nano links.txt
+# Add your links, one per line
+# To save: Press Ctrl + X, then Y, then Enter
+```
+
+8. Run the script:
+```bash
+python niftyjoiner.py
 ```
 
 ### For Windows/Linux/Mac
@@ -94,7 +101,7 @@ python setup.py
 
 5. Run the script:
 ```bash
-python joiner.py
+python niftyjoiner.py
 ```
 
 ### Get Telegram API Credentials
@@ -118,7 +125,7 @@ https://t.me/joinchat/XXXXXXXXXX
 
 ### Interactive Mode (Recommended)
 ```bash
-python joiner.py
+python niftyjoiner.py
 ```
 
 This launches the full interactive interface with:
@@ -154,7 +161,7 @@ Options:
 
 ```
 niftypool-enhanced/
-├── joiner.py              # Main application
+├── niftyjoiner.py              # Main application
 ├── requirements.txt       # Dependencies
 ├── links.txt             # Group links (auto-generated template)
 ├── config/               # Configuration files
